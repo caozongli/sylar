@@ -1,6 +1,7 @@
 #include "log.h"
 #include <map>
 #include <functional>
+#include "config.h"
 
 namespace sylar
 {
@@ -23,6 +24,21 @@ namespace sylar
 			return "UNKNOW";
 		}
 		return "UNKNOW";
+	}
+
+	LogEventWrap::LogEventWrap(LogEvent::ptr e)
+		:m_event(e)
+	{
+
+	}
+
+	LogEventWrap::~LogEventWrap(){
+		m_event->getLogger()->log(m_event->getLevel(), m_event);
+	}
+
+	std::stringstream& LogEventWrap::getSS()
+	{
+		return m_event->getSS();
 	}
 
 	class MessageFormatItem:public LogFormatter::FormatItem
@@ -61,7 +77,7 @@ namespace sylar
 		NameFormatItem(const std::string &fmt = ""){}
 		void format(std::ostream& os, Logger::ptr logger,LogLevel::Level level, LogEvent::ptr event) override
 		{
-			os << logger->getName();
+			os << event->getLogger()->getName();
 		}
 	};
 
@@ -151,19 +167,74 @@ namespace sylar
 		std::string m_string;
 	};
 
-	LogEvent::LogEvent(const char* file, int32_t line, uint32_t elapse, uint32_t thread_id, uint32_t fiber_id, uint64_t time)	
+	class TabFormatItem:public LogFormatter::FormatItem
+	{
+	public:
+		TabFormatItem(const std::string &str)
+			:m_string(str){}
+		void format(std::ostream& os, Logger::ptr logger,LogLevel::Level level, LogEvent::ptr event) override
+		{
+			os << "\t";
+		}
+	
+	private:
+		std::string m_string;
+	};
+
+	LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const char* file, int32_t m_line, uint32_t elapse, uint32_t thread_id, uint32_t fiber_id, uint64_t time)	
 		:m_file(file)
-		,m_line(line)
+		,m_line(m_line)
 		,m_elapse(elapse)
 		,m_threadId(thread_id)
 		,m_fiberId(fiber_id)
 		,m_time(time)
+		,m_logger(logger)
+		,m_level(level)
 	{}
+
+	void LogEvent::format(const char* fmt, ...)
+	{
+		va_list al;
+		va_start(al, fmt);
+		format(fmt, al);
+		va_end(al);
+	}
 
 	Logger::Logger(const std::string& name)
 		:m_name(name), m_level(LogLevel::DEBUG)
 	{
-		m_formatter.reset(new LogFormatter("%d  [%p] <%f:%l>	%m  %n"));
+		m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));
+	}
+
+	void Logger::setFormatter(LogFormatter::ptr val){
+		m_formatter = val;
+	}
+
+	void Logger::setFormatter(const std::string& val){
+		sylar::LogFormatter::ptr new_val(new sylar::LogFormatter(val));
+		if(new_val->isError()){
+			std::cout << "Logger setFormatter name=" << m_name
+					<<" value=" << val << " invalid formatter" << std::endl;
+			return;	
+		}
+		m_formatter = newval;
+	}
+
+	LogFormatter::ptr Logger::getFormatter(){
+		return m_formatter;
+	}
+
+
+
+	void LogEvent::format(const char* fmt, va_list al)
+	{
+		char* buf = nullptr;
+		int len = vasprintf(&buf, fmt, al);
+		if(len != -1)
+		{
+			m_ss << std::string(buf, len);
+			free(buf);
+		}
 	}
 
 	void Logger::addAppender(LogAppender::ptr appender)
@@ -188,15 +259,21 @@ namespace sylar
 		}
 	}
 
+	void Logger::clearAppenders(){
+		m_appenders.clear();
+	}
+
 	void Logger::log(LogLevel::Level level, const LogEvent::ptr& event)
 	{
-		if(level >= m_level)
-		{
+		if(level >= m_level){
 			auto self = shared_from_this(); 
-			for(auto& i: m_appenders)
-			{
-				i->log(self, level, event);
-			}
+			if(!m_appenders.empty()){
+				for(auto& i: m_appenders){
+					i->log(self, level, event);
+				} 
+			}else if(m_root) {
+				m_root->log(level, event);
+			}	
 		}
 	}
 
@@ -228,7 +305,7 @@ namespace sylar
 	FileLogAppender::FileLogAppender(const std::string& filename)
 		:m_filename(filename)
 	{
-
+		reopen();
 	}
 
 	void FileLogAppender::log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event)
@@ -352,25 +429,24 @@ namespace sylar
 	#define XX(str, C) \
 			{#str, [](const std::string& fmt) { return FormatItem::ptr(new C(fmt));}}
 
-			XX(m, MessageFormatItem),
-			XX(p, LevelFormatItem),
-			XX(r, ElapseFormatItem),
-			XX(c, NameFormatItem),
-			XX(t, ThreadIdFormatItem),
-			XX(d, DateTimeFormatItem),
-			XX(f, FilenameFormatItem),
-			XX(l, LineFormatItem)
-			// XX(m, MessageFormatItem),           //m:消息
-			// XX(p, LevelFormatItem),             //p:日志级别
-			// XX(r, ElapseFormatItem),            //r:累计毫秒数
-			// XX(c, NameFormatItem),              //c:日志名称
-			// XX(t, ThreadIdFormatItem),          //t:线程id
-			,XX(n, NewLineFormatItem)         //n:换行
+			 XX(m, MessageFormatItem)				//m:消息
+			,XX(p, LevelFormatItem)					//p:日志级别
+			,XX(r, ElapseFormatItem)				//r:累计毫秒数
+			,XX(c, NameFormatItem)					//c:日志名称
+			,XX(t, ThreadIdFormatItem)				//t:线程id
+			,XX(n, NewLineFormatItem)         		//n:换行
+			,XX(d, DateTimeFormatItem)
+			,XX(f, FilenameFormatItem)
+			,XX(l, LineFormatItem)
+			,XX(T, TabFormatItem)
+			,XX(F, FiberIdFormatItem)      			//F:协程id
+    
+			
 			// XX(d, DateTimeFormatItem),          //d:时间
 			// XX(f, FilenameFormatItem),          //f:文件名
 			// XX(l, LineFormatItem),              //l:行号
-			// XX(T, TabFormatItem),               //T:Tab
-			// XX(F, FiberIdFormatItem),           //F:协程id
+			              //T:Tab
+			
 			// XX(N, ThreadNameFormatItem),        //N:线程名称
 	#undef XX
 		};
@@ -392,5 +468,115 @@ namespace sylar
 		}
     //std::cout << m_items.size() << std::endl;
 	}
+
+	LoggerManager::LoggerManager()
+	{
+		m_root.reset(new Logger);
+		m_root->addAppender(LogAppender::ptr(new StdoutLogAppender));
+
+		init();
+	}
+
+	Logger::ptr LoggerManager::getLogger(const std::string& name){
+		auto it = m_loggers.find(name);
+		if(it != m_loggers.end()) {
+			return it->second;
+		}
+
+		Logger::ptr logger(new Logger(name));
+		logger->m_root = m_root;
+		m_loggers[name] = logger;
+		return logger;
+		return it == m_loggers.end() ? m_root:it->second;
+	}
+
+	struct LogAppenderDefine{
+		int type = 0; //1 file, 2 stdout
+		LogLevel::Level level = LogLevel::UNKNOW;
+		std::string formatter;
+		std::string file;
+
+		bool operator==(const LogAppenderDefine& oth) const{
+			return type == oth.type		
+				&& level == oth.level
+				&& formatter == oth.formatter
+				&& file == oth.file;
+		}
+	};
+
+	struct LogDefine {
+		std::string name;
+		LogLevel::Level level = LogLevel::UNKNOW;
+		std::string formatter;
+
+		std::vector<LogAppenderDefine> appenders;
+
+		bool operator==(const LogDefine& oth){
+			return name == oth.name
+				&& level == oth.level
+				&& appenders == appenders;
+		}
+
+		bool operator<(const LogDefine& oth) const {
+			return name < oth.name;
+		}
+	};
+
+	sylar::ConfigVar<std::set<LogDefine>>::ptr g_log_defines = 
+		sylar::Config::Lookup("logs", std::set<LogDefine>(), "logs config");
+
+	struct LogIniter {
+		LogIniter() {
+			g_log_defines->addListener(0xF1E231, [](const std::set<LogDefine>& old_value,
+						const std::set<LogDefine>& new_value){
+				//新增
+				for(auto& i: new_value){
+					auto it = old_value.find(i);
+					if(it == old_value.end()){
+						//新增logger
+						sylar::Logger::ptr logger(new sylar::Logger(i.name));
+						logger->setLevel(i.level);
+						if(!i.formatter.empty()){
+							logger->setFormatter(i.formatter);
+						}
+
+						logger->clearAppenders();
+						for(auto& a: i.appendders){
+							if(a.type == 1){
+
+							} else if(a.type == 2) {
+								ap.reset(new StdoutLoggerAppender());
+							}
+						}
+					} else {
+						if(!(i == *it)){
+							//修改的logger
+						}
+					}
+				}
+				//删除
+				for(auto& i: old_value){
+					auto it = new_value.find(i);
+					if(it == new_value.end()){
+						//删除logger
+						auto logger = SYLAR_LOG_NAME(i.name);
+						logger->setLevel((LogLevel::Level)100);
+						logger->clearAppenders();
+					}
+				}
+			});
+		}
+
+	};
+
+	struct LogIniter __log_init() {
+
+	}
+
+
+	void LoggerManager::init(){
+
+	}
+
 }
 

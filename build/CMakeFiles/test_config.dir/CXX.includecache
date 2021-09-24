@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/sylar/worksapce/sylar/sylar/config.cc
-config.h
-/home/sylar/worksapce/sylar/sylar/config.h
-
 /home/sylar/worksapce/sylar/sylar/config.h
 memory
 -
@@ -36,14 +32,6 @@ map
 unordered_map
 -
 unordered_set
--
-functional
--
-
-/home/sylar/worksapce/sylar/sylar/log.cc
-log.h
-/home/sylar/worksapce/sylar/sylar/log.h
-map
 -
 functional
 -
@@ -82,10 +70,6 @@ util.h
 
 /home/sylar/worksapce/sylar/sylar/singleton.h
 
-/home/sylar/worksapce/sylar/sylar/util.cc
-util.h
-/home/sylar/worksapce/sylar/sylar/util.h
-
 /home/sylar/worksapce/sylar/sylar/util.h
 pthread.h
 -
@@ -98,6 +82,14 @@ stdio.h
 unistd.h
 -
 stdint.h
+-
+
+/home/sylar/worksapce/sylar/tests/test_config.cc
+../sylar/config.h
+/home/sylar/worksapce/sylar/sylar/config.h
+../sylar/log.h
+/home/sylar/worksapce/sylar/sylar/log.h
+yaml-cpp/yaml.h
 -
 
 /usr/local/include/yaml-cpp/binary.h

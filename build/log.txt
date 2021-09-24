@@ -1,0 +1,4 @@
+2021-14-19 10:14:17	ERROR	test macro error
+2021-14-19 10:14:17	ERROR	test macro error
+2021-14-19 10:14:17	ERROR	test macro fmt error aa
+2021-14-19 10:14:17	ERROR	test macro fmt error aa
