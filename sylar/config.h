@@ -280,20 +280,23 @@ public:
 	bool fromString(const std::string& val) override{
 		try{
 			// m_val = boost::lexical_cast<T>(val);
+//            std::cout << val << std::endl;
 			setValue(FromStr()(val));
 		}catch(std::exception& e){
-			SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "ConfigVar::FromString execption " 
+			SYLAR_LOG_ERROR(SYLAR_LOG_ROOT()) << "ConfigVar::FromString execption "
 				<< e.what() << "convert: string to " << typeid(m_val).name();
 		}
+		
 		return false;
 	}
 
 	const T getValue() const { return m_val; }
 
-	void setValue(const T& v){ 
+	void setValue(const T& v){
 		if(v == m_val){
 			return;
 		}
+
 		for(auto& i: m_cbs){
 			i.second(m_val, v);
 		}
@@ -331,8 +334,8 @@ public:
 	template<class T>
 	static typename ConfigVar<T>::ptr Lookup(const std::string& name,
 			const T& default_value, const std::string& description=""){
-		auto it = s_datas.find(name);
-		if(it != s_datas.end()){
+		auto it = GetDatas().find(name);
+		if(it != GetDatas().end()){
 			auto tmp = std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
 			if(tmp){
 				SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "Lookup name=" << name << "exits";
@@ -356,14 +359,14 @@ public:
 		}
 
 		typename ConfigVar<T>::ptr v(new ConfigVar<T>(name, default_value, description));
-		s_datas[name] = v;
+		GetDatas()[name] = v;
 		return v;
 	}
 
 	template<class T>
 	static typename ConfigVar<T>::ptr Lookup(const std::string& name){
-		auto it = s_datas.find(name);
-		if(it == s_datas.end()){
+		auto it = GetDatas().find(name);
+		if(it == GetDatas().end()){
 			return nullptr;
 		}
 		return std::dynamic_pointer_cast<ConfigVar<T>>(it->second);
@@ -373,7 +376,11 @@ public:
 
 	static ConfigVarBase::ptr LookupBase(const std::string& name);
 private:
+static ConfigVarMap& GetDatas(){
 	static ConfigVarMap s_datas;
+	return s_datas;
+}
+	
 };
 
 }

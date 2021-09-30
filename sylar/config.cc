@@ -3,11 +3,9 @@
 namespace sylar
 {
 
-Config::ConfigVarMap Config::s_datas;
-
 ConfigVarBase::ptr Config::LookupBase(const std::string& name){
-	auto it = s_datas.find(name);
-	return it == s_datas.end() ? nullptr: it->second;
+	auto it = GetDatas().find(name);
+	return it == GetDatas().end() ? nullptr: it->second;
 }
 
 //"A.B", 10
@@ -33,6 +31,7 @@ static void ListAllMember(const std::string& prefix,
 void Config::LoadFromYaml(const YAML::Node& root){
 	std::list<std::pair<std::string, const YAML::Node> > all_nodes;
 	ListAllMember("", root, all_nodes);
+	
 
 	for(auto& i: all_nodes){
 		std::string key = i.first;
@@ -45,6 +44,7 @@ void Config::LoadFromYaml(const YAML::Node& root){
 
 		if(var){
 			if(i.second.IsScalar()){
+
 				var->fromString(i.second.Scalar());
 			} else {
 				std::stringstream ss;
