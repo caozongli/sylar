@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -67,8 +67,24 @@ singleton.h
 /home/sylar/worksapce/sylar/sylar/singleton.h
 util.h
 /home/sylar/worksapce/sylar/sylar/util.h
+thread.h
+/home/sylar/worksapce/sylar/sylar/thread.h
 
 /home/sylar/worksapce/sylar/sylar/singleton.h
+
+/home/sylar/worksapce/sylar/sylar/thread.h
+thread
+-
+functional
+-
+memory
+-
+pthread.h
+-
+semaphore.h
+-
+stdint.h
+-
 
 /home/sylar/worksapce/sylar/sylar/util.h
 pthread.h
