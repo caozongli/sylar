@@ -39,6 +39,10 @@ unordered_set
 -
 functional
 -
+thread.h
+/home/sylar/worksapce/sylar/sylar/thread.h
+log.h
+/home/sylar/worksapce/sylar/sylar/log.h
 
 /home/sylar/worksapce/sylar/sylar/log.cc
 log.h
@@ -103,10 +107,16 @@ semaphore.h
 -
 stdint.h
 -
+atomic
+-
 
 /home/sylar/worksapce/sylar/sylar/util.cc
 util.h
 /home/sylar/worksapce/sylar/sylar/util.h
+log.h
+/home/sylar/worksapce/sylar/sylar/log.h
+execinfo.h
+-
 
 /home/sylar/worksapce/sylar/sylar/util.h
 pthread.h
@@ -120,6 +130,10 @@ stdio.h
 unistd.h
 -
 stdint.h
+-
+vector
+-
+string
 -
 
 /usr/local/include/yaml-cpp/binary.h

@@ -35,6 +35,10 @@ unordered_set
 -
 functional
 -
+thread.h
+/home/sylar/worksapce/sylar/sylar/thread.h
+log.h
+/home/sylar/worksapce/sylar/sylar/log.h
 
 /home/sylar/worksapce/sylar/sylar/log.h
 string
@@ -85,6 +89,8 @@ semaphore.h
 -
 stdint.h
 -
+atomic
+-
 
 /home/sylar/worksapce/sylar/sylar/util.h
 pthread.h
@@ -98,6 +104,10 @@ stdio.h
 unistd.h
 -
 stdint.h
+-
+vector
+-
+string
 -
 
 /home/sylar/worksapce/sylar/tests/test_config.cc
