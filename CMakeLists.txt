@@ -23,25 +23,30 @@ force_redefine_file_macro_for_sources(sylar) #__FILE__
 # add_library({sylar_static STATIC &{LIB_SRC}})
 # SET_TARGET_PROPERTIES (sylar_static PROPERTIES OUTPUT_NAME "sylar")
 
-set(LIB_LIB
+set(LIBS
 		sylar
 		pthread
 		yaml-cpp)
 
-#add_executable(test tests/test.cc)
-#add_dependencies(test sylar)
-#force_redefine_file_macro_for_sources(test) #__FILE__
-#target_link_libraries(test sylar yaml-cpp)
+add_executable(test tests/test.cc)
+add_dependencies(test sylar)
+force_redefine_file_macro_for_sources(test) #__FILE__
+target_link_libraries(test ${LIBS})
 
 add_executable(test_config tests/test_config.cc)
 add_dependencies(test_config sylar)
 force_redefine_file_macro_for_sources(test_config) #__FILE__
-target_link_libraries(test_config sylar ${LIB_LIB})
+target_link_libraries(test_config ${LIBS})
 
 add_executable(test_thread tests/test_thread.cc)
 add_dependencies(test_thread sylar)
 force_redefine_file_macro_for_sources(test_thread) #__FILE__
-target_link_libraries(test_thread sylar ${LIB_LIB})
+target_link_libraries(test_thread ${LIBS})
+
+add_executable(test_util tests/test_util.cc)
+add_dependencies(test_util sylar)
+force_redefine_file_macro_for_sources(test_util) #__FILE__
+target_link_libraries(test_util ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
