@@ -60,9 +60,57 @@ include CMakeFiles/sylar.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/sylar.dir/flags.make
 
+CMakeFiles/sylar.dir/sylar/config.cc.o: CMakeFiles/sylar.dir/flags.make
+CMakeFiles/sylar.dir/sylar/config.cc.o: ../sylar/config.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sylar.dir/sylar/config.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"sylar/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar.dir/sylar/config.cc.o -c /home/sylar/worksapce/sylar/sylar/config.cc
+
+CMakeFiles/sylar.dir/sylar/config.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar.dir/sylar/config.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"sylar/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sylar/worksapce/sylar/sylar/config.cc > CMakeFiles/sylar.dir/sylar/config.cc.i
+
+CMakeFiles/sylar.dir/sylar/config.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar.dir/sylar/config.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"sylar/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sylar/worksapce/sylar/sylar/config.cc -o CMakeFiles/sylar.dir/sylar/config.cc.s
+
+CMakeFiles/sylar.dir/sylar/config.cc.o.requires:
+
+.PHONY : CMakeFiles/sylar.dir/sylar/config.cc.o.requires
+
+CMakeFiles/sylar.dir/sylar/config.cc.o.provides: CMakeFiles/sylar.dir/sylar/config.cc.o.requires
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/config.cc.o.provides.build
+.PHONY : CMakeFiles/sylar.dir/sylar/config.cc.o.provides
+
+CMakeFiles/sylar.dir/sylar/config.cc.o.provides.build: CMakeFiles/sylar.dir/sylar/config.cc.o
+
+
+CMakeFiles/sylar.dir/sylar/fiber.cc.o: CMakeFiles/sylar.dir/flags.make
+CMakeFiles/sylar.dir/sylar/fiber.cc.o: ../sylar/fiber.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sylar.dir/sylar/fiber.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"sylar/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar.dir/sylar/fiber.cc.o -c /home/sylar/worksapce/sylar/sylar/fiber.cc
+
+CMakeFiles/sylar.dir/sylar/fiber.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar.dir/sylar/fiber.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"sylar/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sylar/worksapce/sylar/sylar/fiber.cc > CMakeFiles/sylar.dir/sylar/fiber.cc.i
+
+CMakeFiles/sylar.dir/sylar/fiber.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar.dir/sylar/fiber.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"sylar/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sylar/worksapce/sylar/sylar/fiber.cc -o CMakeFiles/sylar.dir/sylar/fiber.cc.s
+
+CMakeFiles/sylar.dir/sylar/fiber.cc.o.requires:
+
+.PHONY : CMakeFiles/sylar.dir/sylar/fiber.cc.o.requires
+
+CMakeFiles/sylar.dir/sylar/fiber.cc.o.provides: CMakeFiles/sylar.dir/sylar/fiber.cc.o.requires
+	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/fiber.cc.o.provides.build
+.PHONY : CMakeFiles/sylar.dir/sylar/fiber.cc.o.provides
+
+CMakeFiles/sylar.dir/sylar/fiber.cc.o.provides.build: CMakeFiles/sylar.dir/sylar/fiber.cc.o
+
+
 CMakeFiles/sylar.dir/sylar/log.cc.o: CMakeFiles/sylar.dir/flags.make
 CMakeFiles/sylar.dir/sylar/log.cc.o: ../sylar/log.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sylar.dir/sylar/log.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sylar.dir/sylar/log.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"sylar/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar.dir/sylar/log.cc.o -c /home/sylar/worksapce/sylar/sylar/log.cc
 
 CMakeFiles/sylar.dir/sylar/log.cc.i: cmake_force
@@ -86,7 +134,7 @@ CMakeFiles/sylar.dir/sylar/log.cc.o.provides.build: CMakeFiles/sylar.dir/sylar/l
 
 CMakeFiles/sylar.dir/sylar/util.cc.o: CMakeFiles/sylar.dir/flags.make
 CMakeFiles/sylar.dir/sylar/util.cc.o: ../sylar/util.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sylar.dir/sylar/util.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sylar.dir/sylar/util.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"sylar/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar.dir/sylar/util.cc.o -c /home/sylar/worksapce/sylar/sylar/util.cc
 
 CMakeFiles/sylar.dir/sylar/util.cc.i: cmake_force
@@ -108,33 +156,9 @@ CMakeFiles/sylar.dir/sylar/util.cc.o.provides: CMakeFiles/sylar.dir/sylar/util.c
 CMakeFiles/sylar.dir/sylar/util.cc.o.provides.build: CMakeFiles/sylar.dir/sylar/util.cc.o
 
 
-CMakeFiles/sylar.dir/sylar/config.cc.o: CMakeFiles/sylar.dir/flags.make
-CMakeFiles/sylar.dir/sylar/config.cc.o: ../sylar/config.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sylar.dir/sylar/config.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"sylar/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar.dir/sylar/config.cc.o -c /home/sylar/worksapce/sylar/sylar/config.cc
-
-CMakeFiles/sylar.dir/sylar/config.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sylar.dir/sylar/config.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"sylar/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sylar/worksapce/sylar/sylar/config.cc > CMakeFiles/sylar.dir/sylar/config.cc.i
-
-CMakeFiles/sylar.dir/sylar/config.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sylar.dir/sylar/config.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"sylar/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sylar/worksapce/sylar/sylar/config.cc -o CMakeFiles/sylar.dir/sylar/config.cc.s
-
-CMakeFiles/sylar.dir/sylar/config.cc.o.requires:
-
-.PHONY : CMakeFiles/sylar.dir/sylar/config.cc.o.requires
-
-CMakeFiles/sylar.dir/sylar/config.cc.o.provides: CMakeFiles/sylar.dir/sylar/config.cc.o.requires
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/config.cc.o.provides.build
-.PHONY : CMakeFiles/sylar.dir/sylar/config.cc.o.provides
-
-CMakeFiles/sylar.dir/sylar/config.cc.o.provides.build: CMakeFiles/sylar.dir/sylar/config.cc.o
-
-
 CMakeFiles/sylar.dir/sylar/thread.cc.o: CMakeFiles/sylar.dir/flags.make
 CMakeFiles/sylar.dir/sylar/thread.cc.o: ../sylar/thread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sylar.dir/sylar/thread.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sylar.dir/sylar/thread.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"sylar/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sylar.dir/sylar/thread.cc.o -c /home/sylar/worksapce/sylar/sylar/thread.cc
 
 CMakeFiles/sylar.dir/sylar/thread.cc.i: cmake_force
@@ -158,21 +182,23 @@ CMakeFiles/sylar.dir/sylar/thread.cc.o.provides.build: CMakeFiles/sylar.dir/syla
 
 # Object files for target sylar
 sylar_OBJECTS = \
+"CMakeFiles/sylar.dir/sylar/config.cc.o" \
+"CMakeFiles/sylar.dir/sylar/fiber.cc.o" \
 "CMakeFiles/sylar.dir/sylar/log.cc.o" \
 "CMakeFiles/sylar.dir/sylar/util.cc.o" \
-"CMakeFiles/sylar.dir/sylar/config.cc.o" \
 "CMakeFiles/sylar.dir/sylar/thread.cc.o"
 
 # External object files for target sylar
 sylar_EXTERNAL_OBJECTS =
 
+../bin/libsylar.so: CMakeFiles/sylar.dir/sylar/config.cc.o
+../bin/libsylar.so: CMakeFiles/sylar.dir/sylar/fiber.cc.o
 ../bin/libsylar.so: CMakeFiles/sylar.dir/sylar/log.cc.o
 ../bin/libsylar.so: CMakeFiles/sylar.dir/sylar/util.cc.o
-../bin/libsylar.so: CMakeFiles/sylar.dir/sylar/config.cc.o
 ../bin/libsylar.so: CMakeFiles/sylar.dir/sylar/thread.cc.o
 ../bin/libsylar.so: CMakeFiles/sylar.dir/build.make
 ../bin/libsylar.so: CMakeFiles/sylar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library ../bin/libsylar.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sylar/worksapce/sylar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library ../bin/libsylar.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sylar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -180,9 +206,10 @@ CMakeFiles/sylar.dir/build: ../bin/libsylar.so
 
 .PHONY : CMakeFiles/sylar.dir/build
 
+CMakeFiles/sylar.dir/requires: CMakeFiles/sylar.dir/sylar/config.cc.o.requires
+CMakeFiles/sylar.dir/requires: CMakeFiles/sylar.dir/sylar/fiber.cc.o.requires
 CMakeFiles/sylar.dir/requires: CMakeFiles/sylar.dir/sylar/log.cc.o.requires
 CMakeFiles/sylar.dir/requires: CMakeFiles/sylar.dir/sylar/util.cc.o.requires
-CMakeFiles/sylar.dir/requires: CMakeFiles/sylar.dir/sylar/config.cc.o.requires
 CMakeFiles/sylar.dir/requires: CMakeFiles/sylar.dir/sylar/thread.cc.o.requires
 
 .PHONY : CMakeFiles/sylar.dir/requires

@@ -39,6 +39,9 @@ CMakeFiles/sylar.dir/sylar/config.cc.o
  /usr/local/include/yaml-cpp/stlemitter.h
  /usr/local/include/yaml-cpp/traits.h
  /usr/local/include/yaml-cpp/yaml.h
+CMakeFiles/sylar.dir/sylar/fiber.cc.o
+ /home/sylar/worksapce/sylar/sylar/fiber.cc
+ /home/sylar/worksapce/sylar/sylar/fiber.h
 CMakeFiles/sylar.dir/sylar/log.cc.o
  /home/sylar/worksapce/sylar/sylar/config.h
  /home/sylar/worksapce/sylar/sylar/log.cc
@@ -81,6 +84,7 @@ CMakeFiles/sylar.dir/sylar/thread.cc.o
  /home/sylar/worksapce/sylar/sylar/thread.cc
  /home/sylar/worksapce/sylar/sylar/thread.h
 CMakeFiles/sylar.dir/sylar/util.cc.o
+ /home/sylar/worksapce/sylar/sylar/fiber.h
  /home/sylar/worksapce/sylar/sylar/log.h
  /home/sylar/worksapce/sylar/sylar/singleton.h
  /home/sylar/worksapce/sylar/sylar/thread.h

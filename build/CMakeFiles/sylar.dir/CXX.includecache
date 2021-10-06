@@ -44,6 +44,12 @@ thread.h
 log.h
 /home/sylar/worksapce/sylar/sylar/log.h
 
+/home/sylar/worksapce/sylar/sylar/fiber.cc
+fiber.h
+/home/sylar/worksapce/sylar/sylar/fiber.h
+
+/home/sylar/worksapce/sylar/sylar/fiber.h
+
 /home/sylar/worksapce/sylar/sylar/log.cc
 log.h
 /home/sylar/worksapce/sylar/sylar/log.h
@@ -117,6 +123,8 @@ log.h
 /home/sylar/worksapce/sylar/sylar/log.h
 execinfo.h
 -
+fiber.h
+/home/sylar/worksapce/sylar/sylar/fiber.h
 
 /home/sylar/worksapce/sylar/sylar/util.h
 pthread.h
