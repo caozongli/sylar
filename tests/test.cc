@@ -16,9 +16,9 @@ int main()
 	file_appender->setLevel(sylar::LogLevel::ERROR);
 	logger->addAppender(file_appender);
 
-	// sylar::LogEvent::ptr event(new sylar::LogEvent(__FILE__, __LINE__, 0, sylar::GetThreadId(), 2, time(0)));
+	// sylar::LogEvent::ptr event(new sylar::LogEvent(__FILE__, __LINE__, 0, sylar::GetThreadId(), 2, time(0), sylar::Thread::GetName()));
 	// logger->log(sylar::LogLevel::DEBUG, event);
-	
+
 	std::cout << "HELLO WORLD" << std::endl;
 
 	SYLAR_LOG_INFO(logger) << "test macro";
