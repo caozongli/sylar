@@ -80,6 +80,9 @@ CMakeFiles/sylar.dir/sylar/log.cc.o: /usr/local/include/yaml-cpp/stlemitter.h
 CMakeFiles/sylar.dir/sylar/log.cc.o: /usr/local/include/yaml-cpp/traits.h
 CMakeFiles/sylar.dir/sylar/log.cc.o: /usr/local/include/yaml-cpp/yaml.h
 
+CMakeFiles/sylar.dir/sylar/schedule.cc.o: ../sylar/schedule.cc
+CMakeFiles/sylar.dir/sylar/schedule.cc.o: ../sylar/schedule.h
+
 CMakeFiles/sylar.dir/sylar/thread.cc.o: ../sylar/thread.cc
 CMakeFiles/sylar.dir/sylar/thread.cc.o: ../sylar/thread.h
 

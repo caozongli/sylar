@@ -14,7 +14,9 @@ CXX_INCLUDES = -I/home/sylar/worksapce/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/log.cc.o_DEFINES = __FILE__="sylar/log.cc"
 
-# Custom defines: CMakeFiles/sylar.dir/sylar/util.cc.o_DEFINES = __FILE__="sylar/util.cc"
+# Custom defines: CMakeFiles/sylar.dir/sylar/schedule.cc.o_DEFINES = __FILE__="sylar/schedule.cc"
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/thread.cc.o_DEFINES = __FILE__="sylar/thread.cc"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/util.cc.o_DEFINES = __FILE__="sylar/util.cc"
 

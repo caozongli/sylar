@@ -94,6 +94,12 @@ util.h
 thread.h
 /home/sylar/worksapce/sylar/sylar/thread.h
 
+/home/sylar/worksapce/sylar/sylar/schedule.cc
+schedule.h
+/home/sylar/worksapce/sylar/sylar/schedule.h
+
+/home/sylar/worksapce/sylar/sylar/schedule.h
+
 /home/sylar/worksapce/sylar/sylar/singleton.h
 
 /home/sylar/worksapce/sylar/sylar/thread.cc
