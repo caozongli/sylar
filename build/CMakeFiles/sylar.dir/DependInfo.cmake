@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sylar/worksapce/sylar/sylar/config.cc" "/home/sylar/worksapce/sylar/build/CMakeFiles/sylar.dir/sylar/config.cc.o"
   "/home/sylar/worksapce/sylar/sylar/fiber.cc" "/home/sylar/worksapce/sylar/build/CMakeFiles/sylar.dir/sylar/fiber.cc.o"
+  "/home/sylar/worksapce/sylar/sylar/iomanager.cc" "/home/sylar/worksapce/sylar/build/CMakeFiles/sylar.dir/sylar/iomanager.cc.o"
   "/home/sylar/worksapce/sylar/sylar/log.cc" "/home/sylar/worksapce/sylar/build/CMakeFiles/sylar.dir/sylar/log.cc.o"
   "/home/sylar/worksapce/sylar/sylar/schedule.cc" "/home/sylar/worksapce/sylar/build/CMakeFiles/sylar.dir/sylar/schedule.cc.o"
   "/home/sylar/worksapce/sylar/sylar/thread.cc" "/home/sylar/worksapce/sylar/build/CMakeFiles/sylar.dir/sylar/thread.cc.o"

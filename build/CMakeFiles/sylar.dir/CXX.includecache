@@ -50,6 +50,12 @@ fiber.h
 
 /home/sylar/worksapce/sylar/sylar/fiber.h
 
+/home/sylar/worksapce/sylar/sylar/iomanager.cc
+iomanager.h
+/home/sylar/worksapce/sylar/sylar/iomanager.h
+
+/home/sylar/worksapce/sylar/sylar/iomanager.h
+
 /home/sylar/worksapce/sylar/sylar/log.cc
 log.h
 /home/sylar/worksapce/sylar/sylar/log.h
