@@ -19,6 +19,7 @@ set (LIB_SRC
 		sylar/thread.cc
 		sylar/util.cc
 		sylar/iomanager.cc
+		sylar/timer.cc
 		)
 
 

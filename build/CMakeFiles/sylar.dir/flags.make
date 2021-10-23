@@ -22,3 +22,5 @@ CXX_INCLUDES = -I/home/sylar/worksapce/sylar/. -I/usr/local/include
 
 # Custom defines: CMakeFiles/sylar.dir/sylar/iomanager.cc.o_DEFINES = __FILE__="sylar/iomanager.cc"
 
+# Custom defines: CMakeFiles/sylar.dir/sylar/timer.cc.o_DEFINES = __FILE__="sylar/timer.cc"
+
