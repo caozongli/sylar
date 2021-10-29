@@ -2,6 +2,7 @@
 #include <thread>
 #include "../sylar/log.h"
 #include "../sylar/util.h"
+#include <string>
 
 int main()
 {

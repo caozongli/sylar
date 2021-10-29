@@ -44,11 +44,23 @@ thread.h
 log.h
 /home/sylar/worksapce/sylar/sylar/log.h
 
+/home/sylar/worksapce/sylar/sylar/fd_manager.cc
+fd_manager.h
+/home/sylar/worksapce/sylar/sylar/fd_manager.h
+
+/home/sylar/worksapce/sylar/sylar/fd_manager.h
+
 /home/sylar/worksapce/sylar/sylar/fiber.cc
 fiber.h
 /home/sylar/worksapce/sylar/sylar/fiber.h
 
 /home/sylar/worksapce/sylar/sylar/fiber.h
+
+/home/sylar/worksapce/sylar/sylar/hook.cc
+hook.h
+/home/sylar/worksapce/sylar/sylar/hook.h
+
+/home/sylar/worksapce/sylar/sylar/hook.h
 
 /home/sylar/worksapce/sylar/sylar/iomanager.cc
 iomanager.h
@@ -100,6 +112,8 @@ util.h
 thread.h
 /home/sylar/worksapce/sylar/sylar/thread.h
 
+/home/sylar/worksapce/sylar/sylar/noncopyable.h
+
 /home/sylar/worksapce/sylar/sylar/schedule.cc
 schedule.h
 /home/sylar/worksapce/sylar/sylar/schedule.h
@@ -127,6 +141,8 @@ stdint.h
 -
 atomic
 -
+noncopyable.h
+/home/sylar/worksapce/sylar/sylar/noncopyable.h
 
 /home/sylar/worksapce/sylar/sylar/timer.cc
 timer.h

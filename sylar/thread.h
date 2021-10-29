@@ -8,22 +8,17 @@
 #include <semaphore.h>
 #include <stdint.h>
 #include <atomic>
+#include "noncopyable.h"
 
 namespace sylar{
 
-class Semaphore{
+class Semaphore : Noncopyable{
 public:
     Semaphore(uint32_t count = 0);
     ~Semaphore();
 
     void wait();
     void notity();
-
-private:
-    Semaphore(const Semaphore &) = delete;
-    Semaphore(const Semaphore &&) = delete;
-    Semaphore& operator=(const Semaphore&) = delete;
-
 private:
     sem_t m_semaphore;
 };
@@ -89,44 +84,11 @@ private:
     bool m_locked;
 };
 
-class Mutex{
-public:
-    typedef  ScopeLockImp1<Mutex> Lock;
-    Mutex(){
-        pthread_mutex_init(&m_mutex, nullptr);
-    }
-
-    ~Mutex(){
-        pthread_mutex_destroy(&m_mutex);
-    }
-
-    void lock() {
-        pthread_mutex_lock(&m_mutex);
-    }
-
-    void unlock(){
-        pthread_mutex_unlock(&m_mutex);
-    }
-private:
-    pthread_mutex_t m_mutex;
-};
-
-class NullMutex{
-public:
-    typedef ScopeLockImp1<NullMutex> Lock;
-    NullMutex(){}
-    ~NullMutex(){}
-    void lock(){}
-    void unlock(){}
-private:
-
-};
-
 template<class T>
 struct WriteScopeLockImp1{
 public:
     WriteScopeLockImp1(T& mutex)
-    :m_mutex(mutex){
+            :m_mutex(mutex){
         m_mutex.wrlock();
         m_locked = true;
     }
@@ -152,8 +114,41 @@ private:
     bool m_locked;
 };
 
+class Mutex : Noncopyable {
+public:
+    typedef  ScopeLockImp1<Mutex> Lock;
+    Mutex(){
+        pthread_mutex_init(&m_mutex, nullptr);
+    }
 
-class RWMutex{
+    ~Mutex(){
+        pthread_mutex_destroy(&m_mutex);
+    }
+
+    void lock() {
+        pthread_mutex_lock(&m_mutex);
+    }
+
+    void unlock(){
+        pthread_mutex_unlock(&m_mutex);
+    }
+private:
+    pthread_mutex_t m_mutex;
+};
+
+class NullMutex : Noncopyable{
+public:
+    typedef ScopeLockImp1<NullMutex> Lock;
+    NullMutex(){}
+    ~NullMutex(){}
+    void lock(){}
+    void unlock(){}
+private:
+
+};
+
+
+class RWMutex : Noncopyable {
 public:
     typedef ReadScopeLockImp1<RWMutex> ReadLock;
     typedef WriteScopeLockImp1<RWMutex> WriteLock;
@@ -180,7 +175,7 @@ private:
     pthread_rwlock_t m_lock;
 };
 
-class NullRWMutex{
+class NullRWMutex : Noncopyable {
 public:
     typedef ReadScopeLockImp1<NullRWMutex> ReadLock;
     typedef WriteScopeLockImp1<NullRWMutex> WriteLock;
@@ -192,7 +187,7 @@ public:
     void unlock(){}
 };
 
-class Spinlock{
+class Spinlock : Noncopyable {
 public:
     typedef ScopeLockImp1<Spinlock> Lock;
     Spinlock() {
@@ -213,7 +208,7 @@ private:
     pthread_spinlock_t m_mutex;
 };
 
-class CASLock{
+class CASLock : Noncopyable {
 public:
     typedef ScopeLockImp1<CASLock> Lock;
     CASLock() {
@@ -235,7 +230,7 @@ private:
     volatile std::atomic_flag m_mutex;
 };
 
-class Thread{
+class Thread {
 public:
     typedef std::shared_ptr<Thread> ptr;
     Thread(std::function<void()> cb, const std::string &name);
