@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/sylar/worksapce/sylar/sylar/address.cc
+sstream
+-
+
+/home/sylar/worksapce/sylar/sylar/bytearray.cc
+bytearray.h
+/home/sylar/worksapce/sylar/sylar/bytearray.h
+
+/home/sylar/worksapce/sylar/sylar/bytearray.h
+
 /home/sylar/worksapce/sylar/sylar/config.cc
 config.h
 /home/sylar/worksapce/sylar/sylar/config.h
@@ -121,6 +131,12 @@ schedule.h
 /home/sylar/worksapce/sylar/sylar/schedule.h
 
 /home/sylar/worksapce/sylar/sylar/singleton.h
+
+/home/sylar/worksapce/sylar/sylar/socket.cc
+socket.h
+/home/sylar/worksapce/sylar/sylar/socket.h
+
+/home/sylar/worksapce/sylar/sylar/socket.h
 
 /home/sylar/worksapce/sylar/sylar/thread.cc
 thread.h

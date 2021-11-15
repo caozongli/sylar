@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././sylar/address.h
+
+/home/sylar/worksapce/sylar/tests/test_address.cc
+sylar/address.h
+/home/sylar/worksapce/sylar/tests/sylar/address.h
+

@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././sylar/bytearray.h
+
+/home/sylar/worksapce/sylar/tests/test_bytearray.cc
+sylar/bytearray.h
+/home/sylar/worksapce/sylar/tests/sylar/bytearray.h
+
